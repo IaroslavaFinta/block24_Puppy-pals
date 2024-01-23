@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <h1>PuppyList</h1>
         {
           puppies.map((puppy) => {
             return (
