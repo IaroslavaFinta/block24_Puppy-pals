@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.App {
+  color: #5c0791;
+  font-size: large;
+}
+
+.PuppyDetail {
+  font-size: medium;
+  color: rgb(206, 78, 19);
+  display: grid;
+  list-style: none;
+  border:thin dashed black
+}

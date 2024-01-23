@@ -1,21 +1,42 @@
 import { useState } from 'react'
 import './App.css'
+import { puppyList } from './data.js'
+import './App.css'
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [puppies, setPuppies] = useState(puppyList)
+
+  const [featPupId, setFeatPupId] = useState(null)
+
+  console.log("puppyList: ", puppyList)
+
+  const featuredPup = puppies.find((pup) => pup.id === featPupId)
+  console.log(featuredPup)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="App">
+        {
+          puppies.map((puppy) => {
+            return (
+              <p onClick={() => { setFeatPupId(puppy.id) }}
+                key={puppy.id}>{puppy.name}
+              </p>
+            );
+          })}
+        {featPupId && (
+          <div>
+            <h2>{featuredPup.name}</h2>
+            <ul className="PuppyDetail">
+              <li>Age: {featuredPup.age}</li>
+              <li>Email: {featuredPup.email}</li>
+            </ul>
+          </div>
+        )}
       </div>
     </>
-  )
+  );
 }
 
 export default App
